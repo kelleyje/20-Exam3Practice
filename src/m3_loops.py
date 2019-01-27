@@ -6,8 +6,8 @@ This problem provides practice at:
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and James Kelley.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ###############################################################################
 # Students:
@@ -46,7 +46,7 @@ def main():
 def run_test_practice_problem3():
     """ Tests the   practice_problem3  function. """
     ###########################################################################
-    # TODO: 2. Implement this TEST function.
+    # DONE: 2. Implement this TEST function.
     #   It TESTS the  practice_problem3  function defined below.
     #   Include at least ** 2 ** ADDITIONAL tests beyond those we wrote.
     #
@@ -136,6 +136,15 @@ def run_test_practice_problem3():
     #             that they are adequate tests!
     ###########################################################################
 
+    tests2 = [st.SimpleTestCase(practice_problem3,
+                               [0, 0, 1.3],
+                               []),
+             st.SimpleTestCase(practice_problem3,
+                               [6, 2, -2],
+                               [6, 7])]
+
+    st.SimpleTestCase.run_tests('practice_problem3', tests2)
+
 
 def practice_problem3(start, n, threshold):
     """
@@ -217,6 +226,18 @@ def practice_problem3(start, n, threshold):
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   < 15 minutes.
     ###########################################################################
+
+    count = 0
+    note = []
+    mono = start
+
+    while count < n:
+        if math.sin(mono) + math.cos(mono) > threshold:
+            note.append(mono)
+            count += 1
+        mono += 1
+
+    return note
 
 
 # -----------------------------------------------------------------------------
