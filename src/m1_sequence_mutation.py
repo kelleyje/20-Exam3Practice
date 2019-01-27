@@ -92,7 +92,7 @@ def zero_changer(tuple_of_lists):
     # -------------------------------------------------------------------------
 
     tally = 1
-    
+
     for x in tuple_of_lists:
         for y in range(len(x)):
             if x[y] == 0:
