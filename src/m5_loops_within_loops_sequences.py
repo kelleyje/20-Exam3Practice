@@ -6,8 +6,8 @@ This problem provides practice at:
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and James Kelley.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ###############################################################################
 # Students:
@@ -72,6 +72,12 @@ def run_test_integers():
     print('Expected is:', expected)
     print('Actual is:  ', answer)
 
+    # Test 2:
+    expected = [0, -10, 10, 0, 0, 0]
+    answer = integers([[], [], [0], ['hi', 'hello', 'bye'], [-10, 10, 0, 0, 0]])
+    print('Expected is:', expected)
+    print('Actual is:  ', answer)
+
 
 def integers(sequence_of_sequences):
     """
@@ -96,7 +102,7 @@ def integers(sequence_of_sequences):
       :rtype: list of int
     """
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # -------------------------------------------------------------------------
     ###########################################################################
@@ -120,11 +126,20 @@ def integers(sequence_of_sequences):
     #    TIME ESTIMATE:  10 minutes.
     # -------------------------------------------------------------------------
 
+    note = []
+
+    for x in sequence_of_sequences:
+        for y in x:
+            if type(y) is int:
+                note.append(y)
+
+    return note
+
 
 def run_test_big_letters():
     """ Tests the    big_letters    function. """
     # -------------------------------------------------------------------------
-    # TODO: 4. Implement this TEST function.
+    # DONE: 4. Implement this TEST function.
     #   It TESTS the  big_letters  function defined below.
     #   Include at least ** 1 ** ADDITIONAL test beyond those we wrote.
     # -------------------------------------------------------------------------
@@ -157,6 +172,13 @@ def run_test_big_letters():
                           'D',  # D
                           'OOps'  # OO
                           ])
+    print('Expected is:', expected)
+    print('Actual is:  ', answer)
+
+    # Test 2:
+    expected = 'TQBFJORHHELP'
+    answer = big_letters(['The Quick Brown Fox Jumped Over the Rabbit!',
+                          [1, 20], 'H', 'HELP', 'o'])
     print('Expected is:', expected)
     print('Actual is:  ', answer)
 
@@ -212,6 +234,17 @@ def big_letters(sequence_of_sequences):
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:  12 minutes.
     # -------------------------------------------------------------------------
+
+    note = ''
+
+    for x in sequence_of_sequences:
+        if type(x) is str:
+            for y in x:
+                if y.isupper():
+                    note += y
+
+    return note
+
 
 # -----------------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
